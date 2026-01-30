@@ -23,7 +23,10 @@ void setup() {
   Serial.println("Starting NTP client...");
   if (!ntp.begin()) {
     Serial.println("Failed to initialize NTP client");
-  } 
+  }
+  // Set time offset to +1 hour (e.g., for CET timezone) 
+  ntp.setTimeOffsetHours(1); 
+
 }
 
 void loop() {  
