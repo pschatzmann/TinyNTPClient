@@ -78,9 +78,7 @@ class TinyNTPClient {
    * @brief Alias for getTimeMs().
    * @return Current time in milliseconds.
    */
-  uint64_t millis() {
-    return getTimeMs();
-  }
+  uint64_t millis() { return getTimeMs(); }
 
   /**
    * @brief Get the current time as a std::tm structure (UTC).
@@ -132,15 +130,37 @@ class TinyNTPClient {
 
  protected:
   /**
+   * @brief Convert a 32-bit value from host byte order to network byte order
+   * (big-endian).
+   * @param hostlong Value in host byte order.
+   * @return Value in network byte order.
+   */
+  inline uint32_t l_htonl(uint32_t hostlong) {
+    return ((hostlong & 0x000000FF) << 24) | ((hostlong & 0x0000FF00) << 8) |
+           ((hostlong & 0x00FF0000) >> 8) | ((hostlong & 0xFF000000) >> 24);
+  }
+
+  /**
+   * @brief Convert a 32-bit value from network byte order (big-endian) to host
+   * byte order.
+   * @param netlong Value in network byte order.
+   * @return Value in host byte order.
+   */
+  inline uint32_t l_ntohl(uint32_t netlong) {
+    return ((netlong & 0x000000FF) << 24) | ((netlong & 0x0000FF00) << 8) |
+           ((netlong & 0x00FF0000) >> 8) | ((netlong & 0xFF000000) >> 24);
+  }
+
+  /**
    * @brief Structure representing an NTP packet (RFC 5905, 48 bytes)
    */
   struct __attribute__((packed)) NTPPacket {
     // Leap Indicator, Version Number, Mode (packed in one byte)
     // Bit layout: LI(7-6) | VN(5-3) | Mode(2-0)
     uint8_t li_vn_mode = 0;  // Default: 0x00, set to 0xE3 for client request
-    uint8_t stratum = 0;   // Stratum level of the local clock
-    uint8_t poll = 0;      // Maximum interval between messages
-    uint8_t precision = 0; // Precision of the local clock
+    uint8_t stratum = 0;     // Stratum level of the local clock
+    uint8_t poll = 0;        // Maximum interval between messages
+    uint8_t precision = 0;   // Precision of the local clock
     uint32_t rootDelay =
         0;  // Total round trip delay to the primary reference source
     uint32_t rootDispersion =
@@ -188,13 +208,7 @@ class TinyNTPClient {
     // Binary: 11 011 011 = 0xDB
     packet.li_vn_mode = 0xDB;
     // Convert transmit timestamp to network byte order
-    auto htonl = [](uint32_t hostlong) -> uint32_t {
-      return ((hostlong & 0x000000FF) << 24) |
-             ((hostlong & 0x0000FF00) << 8) |
-             ((hostlong & 0x00FF0000) >> 8) |
-             ((hostlong & 0xFF000000) >> 24);
-    };
-    packet.txTm_s = htonl(txTm_s);
+    packet.txTm_s = l_htonl(txTm_s);
     packet.txTm_f = 0;
 
     _udp.begin(_port);
@@ -217,10 +231,9 @@ class TinyNTPClient {
     NTPPacket response = {};
     uint8_t* buffer = reinterpret_cast<uint8_t*>(&response);
 
-
     // Check if packet size is correct
     if (packetSize < (int)sizeof(NTPPacket)) {
-      _udp.read(buffer, packetSize);  // Read available data for logging  
+      _udp.read(buffer, packetSize);  // Read available data for logging
       log("NTP: packet too short - Expected: %d, Got: %d (%s)\n",
           sizeof(NTPPacket), packetSize, buffer);
       return false;
@@ -245,35 +258,31 @@ class TinyNTPClient {
       return false;
     }
 
-    // Convert from network byte order (big-endian) to host byte order
-    auto ntohl = [](uint32_t netlong) -> uint32_t {
-      return ((netlong & 0x000000FF) << 24) |
-             ((netlong & 0x0000FF00) << 8) |
-             ((netlong & 0x00FF0000) >> 8) |
-             ((netlong & 0xFF000000) >> 24);
-    };
-
     bool useOffset = (txTm_s != 0);
     if (useOffset) {
       // Full NTP offset calculation
-      uint32_t originate = ntohl(response.origTm_s);
-      uint32_t receive = ntohl(response.rxTm_s);
-      uint32_t transmit = ntohl(response.txTm_s);
-      // log("NTP: originate=%u, receive=%u, transmit=%u\n", originate, receive, transmit);
+      uint32_t originate = l_ntohl(response.origTm_s);
+      uint32_t receive = l_ntohl(response.rxTm_s);
+      uint32_t transmit = l_ntohl(response.txTm_s);
+      // log("NTP: originate=%u, receive=%u, transmit=%u\n", originate, receive,
+      // transmit);
       uint32_t t3_unix = getTimeSec();
       uint32_t t3_ntp = t3_unix + 2208988800UL;
       long offset =
           ((long)(receive - originate) + (long)(transmit - t3_ntp)) / 2;
       _lastNtpTime = transmit - 2208988800UL + offset;
       _lastUpdateMillis = t3_millis;
-      // log("NTP: _lastNtpTime=%u, _lastUpdateMillis=%u\n", _lastNtpTime, _lastUpdateMillis);
+      // log("NTP: _lastNtpTime=%u, _lastUpdateMillis=%u\n", _lastNtpTime,
+      // _lastUpdateMillis);
     } else {
       // Only use server transmit timestamp
-      uint32_t transmit = ntohl(response.txTm_s);
-      // log("NTP: raw transmit=%u (0x%08X), converted=%u\n", response.txTm_s, response.txTm_s, transmit);
+      uint32_t transmit = l_ntohl(response.txTm_s);
+      // log("NTP: raw transmit=%u (0x%08X), converted=%u\n", response.txTm_s,
+      // response.txTm_s, transmit);
       _lastNtpTime = transmit - 2208988800UL;
       _lastUpdateMillis = t3_millis;
-      // log("NTP: _lastNtpTime=%u, _lastUpdateMillis=%u, t3_millis=%u\n", _lastNtpTime, _lastUpdateMillis, t3_millis);
+      // log("NTP: _lastNtpTime=%u, _lastUpdateMillis=%u, t3_millis=%u\n",
+      // _lastNtpTime, _lastUpdateMillis, t3_millis);
     }
     return true;
   }

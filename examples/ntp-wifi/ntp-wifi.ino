@@ -20,24 +20,30 @@ void connectToWiFi() {
 void setup() {
   Serial.begin(115200);
   connectToWiFi();
+
+  // Initialize NTP client
   Serial.println("Starting NTP client...");
   if (!ntp.begin()) {
     Serial.println("Failed to initialize NTP client");
+    return;
   }
+
   // Set time offset to +1 hour (e.g., for CET timezone) 
   ntp.setTimeOffsetHours(1); 
 
 }
 
 void loop() {  
-  auto currentTime = ntp.getTimeSec();
-  auto tm = ntp.getTm();
-  char time_str[90];
-  sprintf(time_str, "%04d-%02d-%02d %02d:%02d:%02d\n", tm.tm_year + 1900,
-                tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
-  Serial.print("Current time (UTC): ");
-  Serial.print(currentTime);
-  Serial.print(" / Formatted time (UTC): ");
-  Serial.print(time_str);
+  if (ntp) {
+    auto currentTime = ntp.getTimeSec();
+    auto tm = ntp.getTm();
+    char time_str[90];
+    Serial.print("Current time (UTC): ");
+    Serial.print(currentTime);
+    Serial.print(" / Formatted time (UTC): ");
+    sprintf(time_str, "%04d-%02d-%02d %02d:%02d:%02d\n", tm.tm_year + 1900,
+            tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
+    Serial.print(time_str);
+  }
   delay(1000);  // Update every second
 }
