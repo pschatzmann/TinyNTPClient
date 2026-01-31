@@ -129,6 +129,18 @@ class TinyNTPClient {
   UDPAPI& getUDP() { return _udp; }
 
  protected:
+
+  constexpr bool isLittleEndian() {
+    unsigned int x = 1;
+    char* c = (char*)&x;
+    return (int)*c;
+  }
+
+  inline uint32_t swap32(uint32_t value) {
+    return ((value & 0x000000FF) << 24) | ((value & 0x0000FF00) << 8) |
+           ((value & 0x00FF0000) >> 8) | ((value & 0xFF000000) >> 24);
+  }
+
   /**
    * @brief Convert a 32-bit value from host byte order to network byte order
    * (big-endian).
@@ -136,8 +148,7 @@ class TinyNTPClient {
    * @return Value in network byte order.
    */
   inline uint32_t l_htonl(uint32_t hostlong) {
-    return ((hostlong & 0x000000FF) << 24) | ((hostlong & 0x0000FF00) << 8) |
-           ((hostlong & 0x00FF0000) >> 8) | ((hostlong & 0xFF000000) >> 24);
+    return isLittleEndian() ? swap32(hostlong) : hostlong;
   }
 
   /**
@@ -147,8 +158,7 @@ class TinyNTPClient {
    * @return Value in host byte order.
    */
   inline uint32_t l_ntohl(uint32_t netlong) {
-    return ((netlong & 0x000000FF) << 24) | ((netlong & 0x0000FF00) << 8) |
-           ((netlong & 0x00FF0000) >> 8) | ((netlong & 0xFF000000) >> 24);
+    return isLittleEndian() ? swap32(netlong) : netlong;
   }
 
   /**
