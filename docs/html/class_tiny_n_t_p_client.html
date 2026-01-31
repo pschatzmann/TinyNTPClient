@@ -78,7 +78,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A Network Time Protocol (NTP) client for retrieving the current time from an NTP server using a UDP API.  
+<p>A Network Time Protocol (NTP) client for retrieving the current date/time from an NTP server using an Arduino UDP API. It returns the time information from the NTP server and adjusts it based on the round-trip delay calculation. The timezone offset can be set to account for local time differences.  
  <a href="class_tiny_n_t_p_client.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_tiny_n_t_p_client_8h_source.html">TinyNTPClient.h</a>&gt;</code></p>
@@ -86,7 +86,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab865daad5449752f7b7393b0cc912a2c" id="r_ab865daad5449752f7b7393b0cc912a2c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tiny_n_t_p_client.html#ab865daad5449752f7b7393b0cc912a2c">TinyNTPClient</a> (const char *server=&quot;pool.ntp.org&quot;, int port=123, uint32_t timeoutMs=6000)</td></tr>
-<tr class="memdesc:ab865daad5449752f7b7393b0cc912a2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_tiny_n_t_p_client.html" title="A Network Time Protocol (NTP) client for retrieving the current time from an NTP server using a UDP A...">TinyNTPClient</a> object.  <br /></td></tr>
+<tr class="memdesc:ab865daad5449752f7b7393b0cc912a2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_tiny_n_t_p_client.html" title="A Network Time Protocol (NTP) client for retrieving the current date/time from an NTP server using an...">TinyNTPClient</a> object.  <br /></td></tr>
 <tr class="separator:ab865daad5449752f7b7393b0cc912a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80d3f50be30c1747dd203878cf7f5626" id="r_a80d3f50be30c1747dd203878cf7f5626"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tiny_n_t_p_client.html#a80d3f50be30c1747dd203878cf7f5626">begin</a> ()</td></tr>
 <tr class="memdesc:a80d3f50be30c1747dd203878cf7f5626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the NTP client and perform the first time update.  <br /></td></tr>
@@ -178,7 +178,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename UDPAPI&gt;<br />
-class TinyNTPClient&lt; UDPAPI &gt;</div><p>A Network Time Protocol (NTP) client for retrieving the current time from an NTP server using a UDP API. </p>
+class TinyNTPClient&lt; UDPAPI &gt;</div><p>A Network Time Protocol (NTP) client for retrieving the current date/time from an NTP server using an Arduino UDP API. It returns the time information from the NTP server and adjusts it based on the round-trip delay calculation. The timezone offset can be set to account for local time differences. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">UDPAPI</td><td>The UDP class to use (e.g: WiFiUDP) </td></tr>
@@ -228,7 +228,7 @@ template&lt;typename UDPAPI &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Construct a new <a class="el" href="class_tiny_n_t_p_client.html" title="A Network Time Protocol (NTP) client for retrieving the current time from an NTP server using a UDP A...">TinyNTPClient</a> object. </p>
+<p>Construct a new <a class="el" href="class_tiny_n_t_p_client.html" title="A Network Time Protocol (NTP) client for retrieving the current date/time from an NTP server using an...">TinyNTPClient</a> object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">server</td><td>NTP server hostname or IP address. </td></tr>

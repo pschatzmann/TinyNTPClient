@@ -14,8 +14,11 @@
 
 /**
  * @class TinyNTPClient
- * @brief A Network Time Protocol (NTP) client for retrieving the current time
- * from an NTP server using a UDP API.
+ * @brief A Network Time Protocol (NTP) client for retrieving the current
+ * date/time from an NTP server using an Arduino UDP API. It returns the time
+ * information from the NTP server and adjusts it based on the round-trip delay
+ * calculation. The timezone offset can be set to account for local time
+ * differences.
  * @tparam UDPAPI The UDP class to use (e.g: WiFiUDP)
  */
 template <typename UDPAPI>
@@ -129,7 +132,6 @@ class TinyNTPClient {
   UDPAPI& getUDP() { return _udp; }
 
  protected:
-
   /**
    * @brief Structure representing an NTP packet (RFC 5905, 48 bytes)
    */
@@ -172,7 +174,6 @@ class TinyNTPClient {
   uint32_t _lastUpdateMillis = 0;
   /** Timeout for NTP response in milliseconds. */
   uint32_t _timeoutMs = 0;
-
 
   constexpr bool isLittleEndian() {
     unsigned int x = 1;
