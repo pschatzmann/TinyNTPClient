@@ -134,6 +134,9 @@ Protected Member Functions</h2></td></tr>
 struct&#160;</td><td class="memItemRight" valign="bottom"><b>__attribute__</b> ((packed)) NTPPacket</td></tr>
 <tr class="memdesc:a11dfddc64b872169cf575eedd500fa5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure representing an NTP packet (RFC 5905, 48 bytes) <br /></td></tr>
 <tr class="separator:a11dfddc64b872169cf575eedd500fa5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46e491f0ae0023d262022469f09de767" id="r_a46e491f0ae0023d262022469f09de767"><td class="memItemLeft" align="right" valign="top"><a id="a46e491f0ae0023d262022469f09de767" name="a46e491f0ae0023d262022469f09de767"></a>
+constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>isLittleEndian</b> ()</td></tr>
+<tr class="separator:a46e491f0ae0023d262022469f09de767"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a495ad2bdbc0e90be0e3bbb947364ff8d" id="r_a495ad2bdbc0e90be0e3bbb947364ff8d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tiny_n_t_p_client.html#a495ad2bdbc0e90be0e3bbb947364ff8d">l_htonl</a> (uint32_t hostlong)</td></tr>
 <tr class="memdesc:a495ad2bdbc0e90be0e3bbb947364ff8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a 32-bit value from host byte order to network byte order (big-endian).  <br /></td></tr>
 <tr class="separator:a495ad2bdbc0e90be0e3bbb947364ff8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -146,6 +149,9 @@ struct&#160;</td><td class="memItemRight" valign="bottom"><b>__attribute__</b> (
 <tr class="memitem:a2da35f2dfd1c9916b5f594d0319376f1" id="r_a2da35f2dfd1c9916b5f594d0319376f1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tiny_n_t_p_client.html#a2da35f2dfd1c9916b5f594d0319376f1">ntpExchange</a> (uint32_t txTm_s)</td></tr>
 <tr class="memdesc:a2da35f2dfd1c9916b5f594d0319376f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform the NTP request/response exchange and update the internal time.  <br /></td></tr>
 <tr class="separator:a2da35f2dfd1c9916b5f594d0319376f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af476ae122f565f96c6b0a8aa4ee99a5b" id="r_af476ae122f565f96c6b0a8aa4ee99a5b"><td class="memItemLeft" align="right" valign="top"><a id="af476ae122f565f96c6b0a8aa4ee99a5b" name="af476ae122f565f96c6b0a8aa4ee99a5b"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>swap32</b> (uint32_t value)</td></tr>
+<tr class="separator:af476ae122f565f96c6b0a8aa4ee99a5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a148bbf427abed13310233afd18b8c1" id="r_a7a148bbf427abed13310233afd18b8c1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tiny_n_t_p_client.html#a7a148bbf427abed13310233afd18b8c1">updateWithoutRTC</a> ()</td></tr>
 <tr class="memdesc:a7a148bbf427abed13310233afd18b8c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request the current time from the NTP server and update the internal time.  <br /></td></tr>
 <tr class="separator:a7a148bbf427abed13310233afd18b8c1"><td class="memSeparator" colspan="2">&#160;</td></tr>

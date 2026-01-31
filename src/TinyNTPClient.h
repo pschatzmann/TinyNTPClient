@@ -130,37 +130,6 @@ class TinyNTPClient {
 
  protected:
 
-  constexpr bool isLittleEndian() {
-    unsigned int x = 1;
-    char* c = (char*)&x;
-    return (int)*c;
-  }
-
-  inline uint32_t swap32(uint32_t value) {
-    return ((value & 0x000000FF) << 24) | ((value & 0x0000FF00) << 8) |
-           ((value & 0x00FF0000) >> 8) | ((value & 0xFF000000) >> 24);
-  }
-
-  /**
-   * @brief Convert a 32-bit value from host byte order to network byte order
-   * (big-endian).
-   * @param hostlong Value in host byte order.
-   * @return Value in network byte order.
-   */
-  inline uint32_t l_htonl(uint32_t hostlong) {
-    return isLittleEndian() ? swap32(hostlong) : hostlong;
-  }
-
-  /**
-   * @brief Convert a 32-bit value from network byte order (big-endian) to host
-   * byte order.
-   * @param netlong Value in network byte order.
-   * @return Value in host byte order.
-   */
-  inline uint32_t l_ntohl(uint32_t netlong) {
-    return isLittleEndian() ? swap32(netlong) : netlong;
-  }
-
   /**
    * @brief Structure representing an NTP packet (RFC 5905, 48 bytes)
    */
@@ -203,6 +172,38 @@ class TinyNTPClient {
   uint32_t _lastUpdateMillis = 0;
   /** Timeout for NTP response in milliseconds. */
   uint32_t _timeoutMs = 0;
+
+
+  constexpr bool isLittleEndian() {
+    unsigned int x = 1;
+    char* c = (char*)&x;
+    return (int)*c;
+  }
+
+  inline uint32_t swap32(uint32_t value) {
+    return ((value & 0x000000FF) << 24) | ((value & 0x0000FF00) << 8) |
+           ((value & 0x00FF0000) >> 8) | ((value & 0xFF000000) >> 24);
+  }
+
+  /**
+   * @brief Convert a 32-bit value from host byte order to network byte order
+   * (big-endian).
+   * @param hostlong Value in host byte order.
+   * @return Value in network byte order.
+   */
+  inline uint32_t l_htonl(uint32_t hostlong) {
+    return isLittleEndian() ? swap32(hostlong) : hostlong;
+  }
+
+  /**
+   * @brief Convert a 32-bit value from network byte order (big-endian) to host
+   * byte order.
+   * @param netlong Value in network byte order.
+   * @return Value in host byte order.
+   */
+  inline uint32_t l_ntohl(uint32_t netlong) {
+    return isLittleEndian() ? swap32(netlong) : netlong;
+  }
 
   /**
    * @brief Perform the NTP request/response exchange and update the internal

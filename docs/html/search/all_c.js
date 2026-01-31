@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['tinyntpclient_0',['tinyntpclient',['../class_tiny_n_t_p_client.html',1,'TinyNTPClient&lt; UDPAPI &gt;'],['../class_tiny_n_t_p_client.html#ab865daad5449752f7b7393b0cc912a2c',1,'TinyNTPClient::TinyNTPClient()'],['../index.html',1,'TinyNTPClient']]],
-  ['tinyntpclient_2eh_1',['TinyNTPClient.h',['../_tiny_n_t_p_client_8h.html',1,'']]]
+  ['setserver_0',['setServer',['../class_tiny_n_t_p_client.html#abe7174e6ac966f533aba09d5973d18ef',1,'TinyNTPClient']]],
+  ['settimeoffsethours_1',['setTimeOffsetHours',['../class_tiny_n_t_p_client.html#aca6d6fdf5427090d49de0912eeb7df45',1,'TinyNTPClient']]],
+  ['settimeoffsetseconds_2',['setTimeOffsetSeconds',['../class_tiny_n_t_p_client.html#ae9243f4898861eab112a970fb363cf03',1,'TinyNTPClient']]]
 ];
