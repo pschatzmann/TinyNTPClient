@@ -16,57 +16,26 @@ A minimal, header-only Network Time Protocol (NTP) client for Arduino and compat
 - Returns time as seconds, milliseconds, or `std::tm` struct
 - cmake support
 
-## Installation
+## Installation in Arduino
 
-1. Copy `TinyNTPClient.h` to your Arduino `libraries` folder or your project.
-2. Include the header in your sketch.
+You can download the library as zip and call include Library -> zip library. Or you can git clone this project into the Arduino libraries folder e.g. with
 
-## Usage
-
-```cpp
-#include <WiFiUdp.h>
-#include "TinyNTPClient.h"
-
-WiFiUDP udp;
-TinyNTPClient<WiFiUDP> ntp(udp);
-
-void setup() {
-	// Connect to WiFi here...
-	ntp.begin();
-}
-
-void loop() {
-	if (ntp.update()) {
-		uint32_t now = ntp.getTimeSec();
-		Serial.print("UTC Time: ");
-		Serial.println(now);
-	}
-	delay(60000); // Update every minute
-}
+```
+cd  ~/Documents/Arduino/libraries
+git clone https://github.com/pschatzmann/TinyNTPClient.git
 ```
 
-## API
+I recommend to use git because you can easily update to the latest version just by executing the git pull command in the project folder. 
 
-- `begin()`: Initialize and sync time.
-- `end()`: Reset client state.
-- `update()`: Query NTP server and update time.
-- `getTimeSec()`: Get current time in seconds (UTC).
-- `getTimeMs()`: Get current time in milliseconds (UTC).
-- `getTm()`: Get current time as `std::tm` (UTC).
-- `setTimeOffsetSeconds(offset)`: Set timezone offset in seconds.
-- `setTimeOffsetHours(hours)`: Set timezone offset in hours.
-- `setServer(server, port)`: Set NTP server and port.
 
-## Timezone Handling
+## Documentaion
 
-NTP always returns UTC. Use `setTimeOffsetHours()` or `setTimeOffsetSeconds()` to adjust for your local timezone.
+- [TinyNTPClient](https://pschatzmann.github.io/TinyNTPClient/html/class_tiny_n_t_p_client.html) class
+- [Example Sketch](https://github.com/pschatzmann/TinyNTPClient/blob/main/examples/ntp-wifi/ntp-wifi.ino)
+
 
 ## License
 
 This library is licensed under the GNU GPL v3. See `License.txt` for details.
 
-## Author
-
-- Maintainer: <phil.schatzmann@gmail.com>
-- [GitHub Repository](https://github.com/pschatzmann/TinyNTPClient.git)
 

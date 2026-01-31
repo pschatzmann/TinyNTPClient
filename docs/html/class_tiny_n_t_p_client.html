@@ -78,16 +78,16 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A minimal NTP client for retrieving the current time from an NTP server using a UDP API.  
+<p>A Network Time Protocol (NTP) client for retrieving the current time from an NTP server using a UDP API.  
  <a href="class_tiny_n_t_p_client.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_tiny_n_t_p_client_8h_source.html">TinyNTPClient.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a13fffff77ebbed1dad422e0609f83bcf" id="r_a13fffff77ebbed1dad422e0609f83bcf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tiny_n_t_p_client.html#a13fffff77ebbed1dad422e0609f83bcf">TinyNTPClient</a> (const char *server=&quot;pool.ntp.org&quot;, int port=123, uint32_t timeoutMs=1500)</td></tr>
-<tr class="memdesc:a13fffff77ebbed1dad422e0609f83bcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_tiny_n_t_p_client.html" title="A minimal NTP client for retrieving the current time from an NTP server using a UDP API.">TinyNTPClient</a> object.  <br /></td></tr>
-<tr class="separator:a13fffff77ebbed1dad422e0609f83bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab865daad5449752f7b7393b0cc912a2c" id="r_ab865daad5449752f7b7393b0cc912a2c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tiny_n_t_p_client.html#ab865daad5449752f7b7393b0cc912a2c">TinyNTPClient</a> (const char *server=&quot;pool.ntp.org&quot;, int port=123, uint32_t timeoutMs=6000)</td></tr>
+<tr class="memdesc:ab865daad5449752f7b7393b0cc912a2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_tiny_n_t_p_client.html" title="A Network Time Protocol (NTP) client for retrieving the current time from an NTP server using a UDP A...">TinyNTPClient</a> object.  <br /></td></tr>
+<tr class="separator:ab865daad5449752f7b7393b0cc912a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80d3f50be30c1747dd203878cf7f5626" id="r_a80d3f50be30c1747dd203878cf7f5626"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tiny_n_t_p_client.html#a80d3f50be30c1747dd203878cf7f5626">begin</a> ()</td></tr>
 <tr class="memdesc:a80d3f50be30c1747dd203878cf7f5626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the NTP client and perform the first time update.  <br /></td></tr>
 <tr class="separator:a80d3f50be30c1747dd203878cf7f5626"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,8 +104,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
 <tr class="memitem:a6c02223008d1865e965f0d3962dcab68" id="r_a6c02223008d1865e965f0d3962dcab68"><td class="memItemLeft" align="right" valign="top">std::tm&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tiny_n_t_p_client.html#a6c02223008d1865e965f0d3962dcab68">getTm</a> ()</td></tr>
 <tr class="memdesc:a6c02223008d1865e965f0d3962dcab68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current time as a std::tm structure (UTC).  <br /></td></tr>
 <tr class="separator:a6c02223008d1865e965f0d3962dcab68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f47bad232a2a26cd8995a94e2932217" id="r_a0f47bad232a2a26cd8995a94e2932217"><td class="memItemLeft" align="right" valign="top"><a id="a0f47bad232a2a26cd8995a94e2932217" name="a0f47bad232a2a26cd8995a94e2932217"></a>
+UDPAPI &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getUDP</b> ()</td></tr>
+<tr class="memdesc:a0f47bad232a2a26cd8995a94e2932217"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a reference to the UDP API. <br /></td></tr>
+<tr class="separator:a0f47bad232a2a26cd8995a94e2932217"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8076f453f0ad2e40ab1a6c8444d7ffbf" id="r_a8076f453f0ad2e40ab1a6c8444d7ffbf"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tiny_n_t_p_client.html#a8076f453f0ad2e40ab1a6c8444d7ffbf">millis</a> ()</td></tr>
+<tr class="memdesc:a8076f453f0ad2e40ab1a6c8444d7ffbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for <a class="el" href="class_tiny_n_t_p_client.html#a739a142d45808c33c3927effce7c29e9" title="Get the current time in milliseconds since Unix epoch (UTC).">getTimeMs()</a>.  <br /></td></tr>
+<tr class="separator:a8076f453f0ad2e40ab1a6c8444d7ffbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98f414a88273fc5e600a133a93ad56d0" id="r_a98f414a88273fc5e600a133a93ad56d0"><td class="memItemLeft" align="right" valign="top"><a id="a98f414a88273fc5e600a133a93ad56d0" name="a98f414a88273fc5e600a133a93ad56d0"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>operator bool</b> () const</td></tr>
+<tr class="memdesc:a98f414a88273fc5e600a133a93ad56d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion operator to bool. <br /></td></tr>
 <tr class="separator:a98f414a88273fc5e600a133a93ad56d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe7174e6ac966f533aba09d5973d18ef" id="r_abe7174e6ac966f533aba09d5973d18ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tiny_n_t_p_client.html#abe7174e6ac966f533aba09d5973d18ef">setServer</a> (const char *server, int port=123)</td></tr>
 <tr class="memdesc:abe7174e6ac966f533aba09d5973d18ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the NTP server address and port.  <br /></td></tr>
@@ -126,6 +134,15 @@ Protected Member Functions</h2></td></tr>
 struct&#160;</td><td class="memItemRight" valign="bottom"><b>__attribute__</b> ((packed)) NTPPacket</td></tr>
 <tr class="memdesc:a11dfddc64b872169cf575eedd500fa5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure representing an NTP packet (RFC 5905, 48 bytes) <br /></td></tr>
 <tr class="separator:a11dfddc64b872169cf575eedd500fa5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a495ad2bdbc0e90be0e3bbb947364ff8d" id="r_a495ad2bdbc0e90be0e3bbb947364ff8d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tiny_n_t_p_client.html#a495ad2bdbc0e90be0e3bbb947364ff8d">l_htonl</a> (uint32_t hostlong)</td></tr>
+<tr class="memdesc:a495ad2bdbc0e90be0e3bbb947364ff8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a 32-bit value from host byte order to network byte order (big-endian).  <br /></td></tr>
+<tr class="separator:a495ad2bdbc0e90be0e3bbb947364ff8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7f6b3e5014c1fa7ceda21826d099470" id="r_ab7f6b3e5014c1fa7ceda21826d099470"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tiny_n_t_p_client.html#ab7f6b3e5014c1fa7ceda21826d099470">l_ntohl</a> (uint32_t netlong)</td></tr>
+<tr class="memdesc:ab7f6b3e5014c1fa7ceda21826d099470"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a 32-bit value from network byte order (big-endian) to host byte order.  <br /></td></tr>
+<tr class="separator:ab7f6b3e5014c1fa7ceda21826d099470"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a978d100e9879cc1c52b185665a4590" id="r_a5a978d100e9879cc1c52b185665a4590"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tiny_n_t_p_client.html#a5a978d100e9879cc1c52b185665a4590">log</a> (const char *format,...)</td></tr>
+<tr class="memdesc:a5a978d100e9879cc1c52b185665a4590"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log a formatted message (printf-style).  <br /></td></tr>
+<tr class="separator:a5a978d100e9879cc1c52b185665a4590"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2da35f2dfd1c9916b5f594d0319376f1" id="r_a2da35f2dfd1c9916b5f594d0319376f1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tiny_n_t_p_client.html#a2da35f2dfd1c9916b5f594d0319376f1">ntpExchange</a> (uint32_t txTm_s)</td></tr>
 <tr class="memdesc:a2da35f2dfd1c9916b5f594d0319376f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform the NTP request/response exchange and update the internal time.  <br /></td></tr>
 <tr class="separator:a2da35f2dfd1c9916b5f594d0319376f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,14 +165,14 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a64f4d14e9c38e2c38a5de0066051c413"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a56f1622b9478418b3db2827467db43" id="r_a9a56f1622b9478418b3db2827467db43"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tiny_n_t_p_client.html#a9a56f1622b9478418b3db2827467db43">_timeOffsetSeconds</a> = 0</td></tr>
 <tr class="separator:a9a56f1622b9478418b3db2827467db43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7ba964564bcb1ea6d334bc7d629a79e" id="r_ad7ba964564bcb1ea6d334bc7d629a79e"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tiny_n_t_p_client.html#ad7ba964564bcb1ea6d334bc7d629a79e">_timeoutMs</a> = 1500</td></tr>
+<tr class="memitem:ad7ba964564bcb1ea6d334bc7d629a79e" id="r_ad7ba964564bcb1ea6d334bc7d629a79e"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tiny_n_t_p_client.html#ad7ba964564bcb1ea6d334bc7d629a79e">_timeoutMs</a> = 0</td></tr>
 <tr class="separator:ad7ba964564bcb1ea6d334bc7d629a79e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa864436e4414b9d7155134aafb6588c5" id="r_aa864436e4414b9d7155134aafb6588c5"><td class="memItemLeft" align="right" valign="top">UDPAPI&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tiny_n_t_p_client.html#aa864436e4414b9d7155134aafb6588c5">_udp</a></td></tr>
 <tr class="separator:aa864436e4414b9d7155134aafb6588c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename UDPAPI&gt;<br />
-class TinyNTPClient&lt; UDPAPI &gt;</div><p>A minimal NTP client for retrieving the current time from an NTP server using a UDP API. </p>
+class TinyNTPClient&lt; UDPAPI &gt;</div><p>A Network Time Protocol (NTP) client for retrieving the current time from an NTP server using a UDP API. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">UDPAPI</td><td>The UDP class to use (e.g: WiFiUDP) </td></tr>
@@ -163,8 +180,8 @@ class TinyNTPClient&lt; UDPAPI &gt;</div><p>A minimal NTP client for retrieving 
   </dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a13fffff77ebbed1dad422e0609f83bcf" name="a13fffff77ebbed1dad422e0609f83bcf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13fffff77ebbed1dad422e0609f83bcf">&#9670;&#160;</a></span>TinyNTPClient()</h2>
+<a id="ab865daad5449752f7b7393b0cc912a2c" name="ab865daad5449752f7b7393b0cc912a2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab865daad5449752f7b7393b0cc912a2c">&#9670;&#160;</a></span>TinyNTPClient()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -190,7 +207,7 @@ template&lt;typename UDPAPI &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>timeoutMs</em> = <code>1500</code>&#160;</td>
+          <td class="paramname"><em>timeoutMs</em> = <code>6000</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -205,7 +222,7 @@ template&lt;typename UDPAPI &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Construct a new <a class="el" href="class_tiny_n_t_p_client.html" title="A minimal NTP client for retrieving the current time from an NTP server using a UDP API.">TinyNTPClient</a> object. </p>
+<p>Construct a new <a class="el" href="class_tiny_n_t_p_client.html" title="A Network Time Protocol (NTP) client for retrieving the current time from an NTP server using a UDP A...">TinyNTPClient</a> object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">server</td><td>NTP server hostname or IP address. </td></tr>
@@ -334,6 +351,157 @@ template&lt;typename UDPAPI &gt; </div>
 
 <p>Get the current time as a std::tm structure (UTC). </p>
 <dl class="section return"><dt>Returns</dt><dd>std::tm structure representing the current time (UTC). </dd></dl>
+
+</div>
+</div>
+<a id="a495ad2bdbc0e90be0e3bbb947364ff8d" name="a495ad2bdbc0e90be0e3bbb947364ff8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a495ad2bdbc0e90be0e3bbb947364ff8d">&#9670;&#160;</a></span>l_htonl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UDPAPI &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="class_tiny_n_t_p_client.html">TinyNTPClient</a>&lt; UDPAPI &gt;::l_htonl </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>hostlong</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Convert a 32-bit value from host byte order to network byte order (big-endian). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hostlong</td><td>Value in host byte order. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Value in network byte order. </dd></dl>
+
+</div>
+</div>
+<a id="ab7f6b3e5014c1fa7ceda21826d099470" name="ab7f6b3e5014c1fa7ceda21826d099470"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7f6b3e5014c1fa7ceda21826d099470">&#9670;&#160;</a></span>l_ntohl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UDPAPI &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="class_tiny_n_t_p_client.html">TinyNTPClient</a>&lt; UDPAPI &gt;::l_ntohl </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>netlong</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Convert a 32-bit value from network byte order (big-endian) to host byte order. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">netlong</td><td>Value in network byte order. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Value in host byte order. </dd></dl>
+
+</div>
+</div>
+<a id="a5a978d100e9879cc1c52b185665a4590" name="a5a978d100e9879cc1c52b185665a4590"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a978d100e9879cc1c52b185665a4590">&#9670;&#160;</a></span>log()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UDPAPI &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_tiny_n_t_p_client.html">TinyNTPClient</a>&lt; UDPAPI &gt;::log </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Log a formatted message (printf-style). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">format</td><td>Format string (printf-style). </td></tr>
+    <tr><td class="paramname">...</td><td>Variable arguments. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8076f453f0ad2e40ab1a6c8444d7ffbf" name="a8076f453f0ad2e40ab1a6c8444d7ffbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8076f453f0ad2e40ab1a6c8444d7ffbf">&#9670;&#160;</a></span>millis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UDPAPI &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t <a class="el" href="class_tiny_n_t_p_client.html">TinyNTPClient</a>&lt; UDPAPI &gt;::millis </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Alias for <a class="el" href="class_tiny_n_t_p_client.html#a739a142d45808c33c3927effce7c29e9" title="Get the current time in milliseconds since Unix epoch (UTC).">getTimeMs()</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current time in milliseconds. </dd></dl>
 
 </div>
 </div>
@@ -721,7 +889,7 @@ template&lt;typename UDPAPI &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t <a class="el" href="class_tiny_n_t_p_client.html">TinyNTPClient</a>&lt; UDPAPI &gt;::_timeoutMs = 1500</td>
+          <td class="memname">uint32_t <a class="el" href="class_tiny_n_t_p_client.html">TinyNTPClient</a>&lt; UDPAPI &gt;::_timeoutMs = 0</td>
         </tr>
       </table>
   </td>

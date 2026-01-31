@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TinyNTPClient: TinyNTP Client</title>
+<title>TinyNTPClient: TinyNTPClient</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,10 +69,37 @@ $(function() {
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">TinyNTP Client </div></div>
+  <div class="headertitle"><div class="title"><a class="el" href="class_tiny_n_t_p_client.html" title="A Network Time Protocol (NTP) client for retrieving the current time from an NTP server using a UDP A...">TinyNTPClient</a> </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a> <a href="https://www.arduino.cc/reference/en/libraries/"><img src="https://img.shields.io/badge/Arduino-Library-blue.svg" alt="Arduino Library" style="pointer-events: none;" class="inline"/></a> <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3" style="pointer-events: none;" class="inline"/></a> </p>
+<div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a> A minimal, header-only Network Time Protocol (NTP) client for Arduino and compatible platforms, designed for efficiency and portability. Works with any UDP API (e.g., WiFiUDP, EthernetUDP).</p>
+<p><a href="https://www.arduino.cc/reference/en/libraries/"><img src="https://img.shields.io/badge/Arduino-Library-blue.svg" alt="Arduino Library" style="pointer-events: none;" class="inline"/></a> <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3" style="pointer-events: none;" class="inline"/></a></p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Features</h1>
+<ul>
+<li>Retrieves accurate UTC time from NTP servers</li>
+<li>Minimal resource usage, suitable for embedded/IoT</li>
+<li>Header-only, easy to integrate</li>
+<li>Supports timezone offset</li>
+<li>Works with any UDP API (WiFiUDP, EthernetUDP, etc.)</li>
+<li>Returns time as seconds, milliseconds, or <code>std::tm</code> struct</li>
+<li>cmake support</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Installation</h1>
+<ol type="1">
+<li>Copy <code><a class="el" href="_tiny_n_t_p_client_8h.html" title="Simple NTP client for Arduino using a generic UDP Client (e.g., WiFiUdp, EthernetUdp).">TinyNTPClient.h</a></code> to your Arduino <code>libraries</code> folder or your project.</li>
+<li>Include the header in your sketch.</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Documentaion</h1>
+<ul>
+<li><a href="https://pschatzmann.github.io/TinyNTPClient/html/class_tiny_n_t_p_client.html">TinyNTPClient</a> class</li>
+<li><a href="https://github.com/pschatzmann/TinyNTPClient/blob/main/examples/ntp-wifi/ntp-wifi.ino">Example Sketch</a></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md4"></a>
+License</h1>
+<p>This library is licensed under the GNU GPL v3. See <code>License.txt</code> for details. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

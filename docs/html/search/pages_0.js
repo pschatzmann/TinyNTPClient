@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['client_0',['TinyNTP Client',['../index.html',1,'']]]
+  ['tinyntpclient_0',['TinyNTPClient',['../index.html',1,'']]]
 ];

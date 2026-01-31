@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['tinyntp_20client_0',['TinyNTP Client',['../index.html',1,'']]],
-  ['tinyntpclient_1',['tinyntpclient',['../class_tiny_n_t_p_client.html',1,'TinyNTPClient&lt; UDPAPI &gt;'],['../class_tiny_n_t_p_client.html#a13fffff77ebbed1dad422e0609f83bcf',1,'TinyNTPClient::TinyNTPClient()']]],
-  ['tinyntpclient_2eh_2',['TinyNTPClient.h',['../_tiny_n_t_p_client_8h.html',1,'']]]
+  ['l_5fhtonl_0',['l_htonl',['../class_tiny_n_t_p_client.html#a495ad2bdbc0e90be0e3bbb947364ff8d',1,'TinyNTPClient']]],
+  ['l_5fntohl_1',['l_ntohl',['../class_tiny_n_t_p_client.html#ab7f6b3e5014c1fa7ceda21826d099470',1,'TinyNTPClient']]],
+  ['license_2',['License',['../index.html#autotoc_md4',1,'']]],
+  ['log_3',['log',['../class_tiny_n_t_p_client.html#a5a978d100e9879cc1c52b185665a4590',1,'TinyNTPClient']]]
 ];

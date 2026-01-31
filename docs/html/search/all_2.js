@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['client_0',['TinyNTP Client',['../index.html',1,'']]]
+  ['documentaion_0',['Documentaion',['../index.html#autotoc_md3',1,'']]]
 ];

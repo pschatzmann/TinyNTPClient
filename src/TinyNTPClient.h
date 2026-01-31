@@ -122,10 +122,10 @@ class TinyNTPClient {
                                     : updateWithRTC();
   }
 
-  /** Conversion operator to bool. */
+  /**  @brief Conversion operator to bool. */
   operator bool() const { return _lastUpdateMillis != 0; }
 
-  /** Get a reference to the UDP API. */
+  /**  @brief Get a reference to the UDP API. */
   UDPAPI& getUDP() { return _udp; }
 
  protected:
